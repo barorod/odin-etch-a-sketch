@@ -10,13 +10,14 @@ sliderValue.innerText = `${slider.value}`;
 
 board.style.cssText = `width: ${boardSide}px; height: ${boardSide}px`;
 
-function createDiv(divSize) {
-  const sides = divSize * divSize;
-  const cell = boardSide / divSize;
+function createDiv() {
+  const cellTotal = parseInt(slider.value, 10);
+  const cellSize = board.clientWidth / parseInt(slider.value, 10);
 
-  for (let i = 0; i < sides; i++) {
+  for (let i = 0; i < cellTotal * cellTotal; i++) {
     const div = document.createElement('div');
-    div.style.cssText = `width: ${cell}px; height: ${cell}px`;
+    div.classList.add('cell');
+    div.style.cssText = `width: ${cellSize}px; height: ${cellSize}px`;
 
     board.appendChild(div);
 
@@ -34,15 +35,22 @@ function clearBoard() {
 }
 
 function handleHover() {
-  this.style.backgroundColor = 'black';
+  let color = getRandomColor();
+  this.style.backgroundColor = color;
 }
 
-if (board.firstChild === null) {
-  createDiv(16);
+function getRandomColor() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+
+  return `rgb(${r}, ${g}, ${b})`;
 }
 
 slider.addEventListener('input', () => {
   sliderValue.innerText = slider.value;
   clearBoard();
-  createDiv(slider.value);
+  createDiv();
 });
+
+createDiv();
