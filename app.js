@@ -33,8 +33,16 @@ function clearBoard() {
   }
 }
 
-createDiv(16);
-
 function handleHover() {
   this.style.backgroundColor = 'black';
 }
+
+if (board.firstChild === null) {
+  createDiv(16);
+}
+
+slider.addEventListener('input', () => {
+  sliderValue.innerText = slider.value;
+  clearBoard();
+  createDiv(slider.value);
+});
