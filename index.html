@@ -8,28 +8,51 @@
   </head>
   <body>
     <div class="container">
-      <div class="header"><h1>Etch-a-Sketch</h1></div>
-      <div id="board"></div>
-      <div class="sliderContainer">
-        <input type="range" min="1" max="100" value="16" class="slider" />
-        <p></p>
-        <div>
-          <select>
-            <option value="default">Black</option>
-            <option value="random">Random</option>
-            <option value="custom">Custom</option>
-          </select>
-          <label for="R">R</label>
-          <input id="R" />
+      <h1>Etch-a-Sketch</h1>
+      <div class="flexContainer">
+        <div class="option">
+          <div class="sliderContainer">
+            <p id="sliderVal"></p>
+            <input type="range" min="1" max="100" value="16" class="slider" />
+          </div>
+          <div class="subOption">
+            <select>
+              <option value="default" selected>Black</option>
+              <option value="random">Random</option>
+              <option value="custom">Custom</option>
+            </select>
 
-          <label for="G">G</label>
-          <input id="G" />
+            <div class="custom">
+              <span>RGB</span>
+              <input
+                type="number"
+                placeholder="0"
+                max="255"
+                min="0"
+                id="R"
+                disabled />
 
-          <label for="B">B</label>
-          <input id="B" />
+              <input
+                type="number"
+                placeholder="0"
+                max="255"
+                min="0"
+                id="G"
+                disabled />
 
-          <button>Clear</button>
+              <input
+                type="number"
+                placeholder="0"
+                max="255"
+                min="0"
+                id="B"
+                disabled />
+            </div>
+
+            <button>Clear</button>
+          </div>
         </div>
+        <div id="board"></div>
       </div>
     </div>
     <script src="./app.js"></script>
