@@ -158,6 +158,9 @@ h1 {
 
 .cell {
   box-sizing: border-box;
+}
+
+.cellBorder {
   border: 1px solid rgb(224, 224, 224);
 }
 
@@ -166,7 +169,6 @@ h1 {
   padding: 10px;
 }
 
-/* Slider */
 .slider {
   -webkit-appearance: none;
   width: 100%;
@@ -177,7 +179,6 @@ h1 {
   transition: background 0.3s;
 }
 
-/* Slider Thumb */
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -257,4 +258,8 @@ button:hover {
   border: 1px solid #ccc;
   border-radius: 4px;
   flex: 1;
+}
+
+#toggleGrid {
+  margin-top: 8px;
 }

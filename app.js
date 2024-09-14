@@ -7,6 +7,8 @@ const sliderContainer = document.querySelector('.sliderContainer');
 const sliderValue = document.querySelector('#sliderVal');
 const select = document.querySelector('select');
 const inputs = document.querySelectorAll('.custom > input');
+const btnClear = document.querySelector('#clear');
+const btnToggleGrid = document.querySelector('#toggleGrid');
 
 sliderValue.innerText = `${slider.value}`;
 board.style.cssText = `width: ${boardSide}px; height: ${boardSide}px`;
@@ -18,7 +20,7 @@ function createDiv() {
 
   for (let i = 0; i < cellTotal * cellTotal; i++) {
     const div = document.createElement('div');
-    div.classList.add('cell');
+    div.classList.add('cell', 'cellGrid');
     div.style.cssText = `width: ${cellSize}px; height: ${cellSize}px`;
 
     board.appendChild(div);
@@ -73,3 +75,14 @@ slider.addEventListener('input', () => {
 });
 
 createDiv();
+
+btnClear.addEventListener('click', () => {
+  clearBoard();
+  createDiv();
+});
+
+btnToggleGrid.addEventListener('click', () => {
+  const cells = document.querySelectorAll('.cell');
+
+  cells.forEach((cell) => cell.classList.toggle('cellBorder'));
+});
